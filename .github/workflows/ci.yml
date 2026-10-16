@@ -1,13 +1,15 @@
 name: CI
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
   quality:
     uses: ./.github/workflows/reusable-node-quality.yml
     with:
-      node-version: "20"
+      node-version: 24
